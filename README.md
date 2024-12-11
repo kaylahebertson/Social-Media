@@ -31,6 +31,7 @@ npm i
 ## Usage
 
 Please see walkthrough video:
+![animation shows different restful routes of social media platform](./Assets/social-media.gif)
 
 ## License
 This project is licensed under the MIT license.
