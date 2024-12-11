@@ -31,7 +31,7 @@ import { User } from '../models/index.js';
      return res.status(500).json(err);
    }
  }
- // create a new user
+
  export const createUser = async(req: Request, res: Response) => {
    try {
      const dbUserData = await User.create(req.body);
@@ -65,6 +65,21 @@ import { User } from '../models/index.js';
      return res.status(500).json(err);
    }
  }
+
+export const deleteUser = async(req: Request, res: Response) => {
+    try {
+      const dbUserData = await User.findOneAndDelete({ _id: req.params.userId });
+    
+      if (!dbUserData) {
+         return res.status(404).json({ message: 'No user with this id!' });
+      }
+    
+      return res.json(dbUserData);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    }
 
  export const addFriend = async(req: Request, res: Response) =>{
    try {
