@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { User, Thought } from '../models/index.js';
+import { User } from '../models/index.js';
 
 
  export const getUsers = async(_req: Request, res: Response) => {
@@ -31,7 +31,7 @@ import { User, Thought } from '../models/index.js';
      return res.status(500).json(err);
    }
  }
-
+ // create a new user
  export const createUser = async(req: Request, res: Response) => {
    try {
      const dbUserData = await User.create(req.body);
